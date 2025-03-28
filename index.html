@@ -104,11 +104,23 @@
       .bd-mode-toggle .dropdown-menu .active .bi {
         display: block !important;
       }
+      .bg-oceanblue {
+        background-color: #062544; /* Replace with your desired color */
+      }
+
+      .bg-oceandarkblue {
+        background-color: #02162b; /* Replace with your desired color */
+      }
+
+      .margins-oceandarkblue {
+        background-color: #02162b; /* Same blue as above, or a different shade */
+      }
+
     </style>
 
     
   </head>
-  <body>
+  <body style="background-color: #02162b;">
     <template id="card-template">
       <div class="col">
         <div class="card shadow-sm">
@@ -132,7 +144,7 @@
       </div>
     </template>
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-oceanblue">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.html">Hadal</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -150,11 +162,11 @@
 
 <main>
 
-  <section class="py-5 text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Hadal Work in Progress</h1>
-        <p class="lead text-body-secondary">Explore a collection of dated images and insights detailing the development process and progress of my upcoming underwater shooter game, Hadal.</p>
+  <section class="py-5 text-center container bg-oceandarkblue margins-oceandarkblue">
+    <div class="row py-lg-5 bg-oceandarkblue">
+      <div class="col-lg-6 col-md-8 mx-auto bg-oceandarkblue">
+        <h1 class="fw-light bg-oceandarkblue">Hadal Work in Progress</h1>
+        <p class="lead text-body-secondary bg-oceandarkblue">Explore a collection of dated images and insights detailing the development process and progress of my upcoming underwater shooter game, Hadal.</p>
         <p>
           <a href="https://anzeru-games.itch.io/hadal-demo-build" class="btn btn-primary my-2">Itch.io Demo</a>
           <a href="https://www.youtube.com/@anzeru" class="btn btn-secondary my-2" style="background-color: rgb(179, 17, 17); color: white; border-color: red;">YouTube</a>
@@ -163,7 +175,7 @@
     </div>
   </section>
 
-  <div class="album py-5 bg-body-tertiary">
+  <div class="album py-5 bg-oceanblue">
     <div class="container">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id = "albumContainer">
       </div>
