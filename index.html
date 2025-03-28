@@ -111,21 +111,21 @@
   <body>
     <template id="card-template">
       <div class="col">
-        <div class="card shadow-sm" style="position: relative;">
+        <div class="card shadow-sm">
           <!-- Placeholder SVG for lazy loading -->
-          <svg class="bd-placeholder-img card-img-top" style="position: absolute; top: 0; left: 0; z-index: 0;" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <svg class="bd-placeholder-img card-img-top" style="position: relative; width: 100%; height: 225px; object-fit: cover;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
             <title>Placeholder</title>
             <rect width="100%" height="100%" fill="#55595c"/>
           </svg>
     
           <!-- Lazy loaded image with a placeholder that will be replaced once the image loads -->
           <img class="bd-placeholder-img card-img-top" 
-               style="width: 100%; height: 225px; object-fit: cover; visibility: hidden; position: relative; z-index: 1;" 
+               style="width: 100%; height: 225px; object-fit: cover; opacity: 0; transition: opacity 0.5s ease;" 
                role="img" 
                aria-label="Thumbnail" 
                loading="lazy"
                src="your-image-url.jpg"
-               onload="this.style.visibility='visible'; this.previousElementSibling.style.display='none';">
+               onload="this.style.opacity='1'; this.previousElementSibling.style.display='none';">
     
           <div class="card-body">
             <p class="card-text"></p>
