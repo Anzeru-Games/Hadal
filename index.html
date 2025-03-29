@@ -284,6 +284,7 @@
 
     modalImg.src = imageSrc;
     modal.style.display = "flex";
+    modal.style.display = "block";
   }
 
   // Close modal when clicked outside the image
@@ -291,11 +292,7 @@
     this.style.display = "none";
   });
   
-  function openModal(imageSrc) {
-    document.getElementById("modalImage").src = imageSrc;
-    document.getElementById("imageModal").style.display = "block";
-    document.body.classList.add("modal-open"); // Prevent scrolling
-}
+  
 
 function closeModal() {
     document.getElementById("imageModal").style.display = "none";
