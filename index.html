@@ -162,7 +162,7 @@
         border-radius: 10px;
       }
       #imageModal {
-        display: none;
+        display: flex;
         position: fixed;
         top: 0;
         left: 0;
@@ -172,6 +172,7 @@
         justify-content: center;
         align-items: center;
         z-index: 9999;
+        display: none;
       }
 
     #modalImage {
@@ -283,7 +284,6 @@
     const modalImg = document.getElementById("modalImage");
 
     modalImg.src = imageSrc;
-    modal.style.display = "flex";
     modal.style.display = "block";
   }
 
