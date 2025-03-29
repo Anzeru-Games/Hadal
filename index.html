@@ -290,14 +290,10 @@
   // Close modal when clicked outside the image
   document.getElementById("imageModal").addEventListener("click", function () {
     this.style.display = "none";
+    document.body.classList.remove("modal-open");
   });
   
-  
 
-function closeModal() {
-    document.getElementById("imageModal").style.display = "none";
-    document.body.classList.remove("modal-open"); // Restore scrolling
-}
   // Example usage: Dynamically create a card
   createCard('CompressedMedia/Hadal 3_26_2025 9_38_06 PM.png', 'Additional tweaks to stylization, increased thickness of edge, decreased intensity of normal maps.', 'March 2025');
   createCard('CompressedMedia/Hadal 3_23_2025 10_12_54 PM.png', 'Added some cool pillars, and a grounding force (keeps player stuck to slopes when moving on them).', 'March 2025');
