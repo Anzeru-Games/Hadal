@@ -250,8 +250,23 @@
     dateDiv.textContent = date;
 
     // Append the cloned template to the card container
+    card.addEventListener("click", function () {
+        openModal(imageSrc);
+    });
     document.getElementById('albumContainer').appendChild(clone);
   }
+  function openModal(imageSrc) {
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+
+    modalImg.src = imageSrc;
+    modal.style.display = "flex";
+  }
+
+  // Close modal when clicked outside the image
+  document.getElementById("imageModal").addEventListener("click", function () {
+    this.style.display = "none";
+  });
   // Example usage: Dynamically create a card
   createCard('CompressedMedia/Hadal 3_26_2025 9_38_06 PM.png', 'Additional tweaks to stylization, increased thickness of edge, decreased intensity of normal maps.', 'March 2025');
   createCard('CompressedMedia/Hadal 3_23_2025 10_12_54 PM.png', 'Added some cool pillars, and a grounding force (keeps player stuck to slopes when moving on them).', 'March 2025');
