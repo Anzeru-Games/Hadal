@@ -121,7 +121,9 @@
       .bg-oceandarkblue {
         background-color: #02162b; /* Replace with your desired color */
       }
-
+      .bg-oceanbluelight {
+        background-color: #134272; /* Replace with your desired color */
+      }
       .margins-oceandarkblue {
         background-color: #02162b; /* Same blue as above, or a different shade */
       }
@@ -135,34 +137,67 @@
       .container {
         overflow: visible;
       }
+      .banner-section {
+        position: relative;
+      }
+
+      .banner-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('Media/Screenshot\ 2025-03-28\ 204102.png') no-repeat center center/cover;
+        filter: blur(5px);
+        z-index: -1;
+        opacity: 0; /* Start with opacity 0 */
+        transition: opacity 1s ease-in-out;
+      }
+      .banner-section.loaded::before {
+        opacity: 1; /* Fade in once loaded */
+      }
+      .banner-content {
+        position: relative;
+        z-index: 1;
+        background: rgba(0, 0, 0, 0.6); /* Dark overlay behind text */
+        color: white; /* Ensures text is readable */
+        padding: 2rem;
+        margin-left: 3%;
+        margin-right: 3%;
+        border-radius: 10px;
+      }
+
 </style>
 
     
   </head>
   <body style="background-color: #02162b;">
 
-<nav class="navbar navbar-expand-lg bg-oceanblue">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="index.html">Hadal</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="about.html">About</a>
-        </li>
-      </ul>
+  <nav class="navbar navbar-expand-lg bg-oceanbluelight fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">Hadal</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="about.html">About</a>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
 <main>
-  <section class="py-5 text-center container bg-oceandarkblue margins-oceandarkblue">
-    <div class="row py-lg-5 bg-oceandarkblue">
-      <div class="col-lg-6 col-md-8 mx-auto bg-oceandarkblue">
-        <h1 class="fw-light bg-oceandarkblue">About Hadal</h1>
-        <p class="lead text-body-secondary bg-oceandarkblue">Dive into the depths of Hadal.</p>
+
+  <img id="banner-image" src="Media/Screenshot 2025-03-28 204102.png" style="display: none;" onload="document.querySelector('.banner-section').classList.add('loaded');">
+  <section class="py-5 text-center container-fluid banner-section">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto banner-content">
+        <h1 class="fw-light">About Hadal</h1>
+        <p class="lead text-body-secondary">Dive into the depths of Hadal.</p>
         <p>
           <a href="https://anzeru-games.itch.io/hadal-demo-build" class="btn btn-primary my-2">Itch.io Demo</a>
           <a href="https://www.youtube.com/@anzeru" class="btn btn-secondary my-2" style="background-color: rgb(179, 17, 17); color: white; border-color: red;">YouTube</a>
@@ -171,7 +206,7 @@
     </div>
   </section>
 
-  <div class="container px-4 py-5 mx-auto bg-oceanblue" style="margin-bottom: 3%;">
+  <div class="container px-4 py-5 mx-auto bg-oceanblue" style="margin-bottom: 3%; margin-top: 3%; border-radius: 10px;">
     <div class="row gx-5">
       <div class="col-md-6">
         <h1 class="display-5 fw-bold lh-1 mb-3">What is the Game About?</h1>
