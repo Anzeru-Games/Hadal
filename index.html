@@ -206,7 +206,7 @@
 </nav>
 
 <main>
-
+  <img id="banner-image" src="Media/Screenshot 2025-03-28 204102.png" style="display: none;" onload="document.querySelector('.banner-section').classList.add('loaded');">
   <section class="py-5 text-center container-fluid banner-section">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto banner-content">
@@ -250,9 +250,6 @@
     // Append the cloned template to the card container
     document.getElementById('albumContainer').appendChild(clone);
   }
-    window.onload = function() {
-    document.querySelector('.banner-section').classList.add('loaded');
-  };
   // Example usage: Dynamically create a card
   createCard('CompressedMedia/Hadal 3_26_2025 9_38_06 PM.png', 'Additional tweaks to stylization, increased thickness of edge, decreased intensity of normal maps.', 'March 2025');
   createCard('CompressedMedia/Hadal 3_23_2025 10_12_54 PM.png', 'Added some cool pillars, and a grounding force (keeps player stuck to slopes when moving on them).', 'March 2025');
