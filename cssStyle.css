@@ -129,23 +129,57 @@
         width: 100%;
         height: 100%;
         background: rgba(0, 0, 0, 0.8);
-        justify-content: center;
-        align-items: center;
+        justify-content: center; /* Center the content horizontally */
+        align-items: center;     /* Center the content vertically */
         z-index: 9999;
         display: none;
+      }
+      
+      #imageContent {
+        display: flex;
+        flex-direction: column;  /* Stack the image and text vertically */
+        align-items: center;     /* Center the content horizontally */
+        text-align: center;      /* Center the text beneath the image */
+        padding: 20px;
+        background-color: #222;  /* Optional: Dark background */
+        border-radius: 10px;     /* Rounded corners */
+        max-width: 1400px;          /* Max width to avoid stretching */
+        width: 95%;             /* Full width up to max-width */
+        max-height: 95%;         /* Ensure it doesn't exceed screen height */
+        overflow: auto;          /* Add scroll if content exceeds max height */
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Center the modal */
+        box-shadow: 0 0 15px 5px rgba(25, 144, 160, 0.8); /* Glowing effect */
+        cursor: pointer;  /* Change cursor to a pointer when hovering over the card */
     }
-
-#modalImage {
-  max-width: 95%;
-  max-height: 95%;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-  object-fit: contain;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+      
+      #modalImage {
+        width: 100%;             /* Set width to fill the container */
+        max-width: auto;        /* Max width of the image (you can adjust as needed) */
+        max-height: 80vh;        /* Limit image height to 80% of the viewport height */
+        height: auto;            /* Maintain aspect ratio */
+        object-fit: cover;     /* Fit image inside container without distortion */
+        border-radius: 10px;
+        /* Optional: Add some shadow or border for aesthetics */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        border: 1px solid #ffffff48; /* Optional: White border around the image */
+      }
+      
+      #imageText {
+        color: white;
+        margin-top: 10px;        /* Space between image and text */
+        font-size: 20px;
+      }
+      .card {
+        /* Other card styles */
+        cursor: pointer;  /* Change cursor to a pointer when hovering over the card */
+        transition: transform 0.3s ease; /* Smooth scale and shadow transition */  
+    }
+      .card:hover {
+        transform: scale(1.05);  /* Optional: Slight zoom effect on hover */
+      }
     body.modal-open {
       overflow: hidden;
     }

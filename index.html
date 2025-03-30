@@ -1,7 +1,7 @@
 <!--https://anzeru-games.github.io/Hadal/-->
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
-  <head>
+<head>
     <meta property="og:url" content="https://anzeru-games.github.io/Hadal/"/>
     <meta property="og:title" content="Hadal - Underwater FPS">
     <meta property="og:description" content="Explore the deep, battle bosses, and acquire powerful weapons in this unique underwater shooter.">
@@ -68,7 +68,10 @@
 <main>
   <img id="banner-image" src="Media/Screenshot 2025-03-28 204102.png" style="display: none;" onload="document.querySelector('.banner-section').classList.add('loaded');">
   <div id="imageModal">
-    <img id="modalImage">
+    <div id="imageContent" style="background-color: #212529;">
+      <img id="modalImage">
+      <p id="imageText">This is the text beneath the image.</p>
+    </div>
   </div>
   <section class="py-5 text-center container-fluid banner-section">
     <div class="row py-lg-5">
@@ -112,19 +115,21 @@
     dateDiv.textContent = date;
     const card = clone.querySelector('.card');
     // Append the cloned template to the card container
-    card.addEventListener("click", function () {
-        openModal(imageSrc);
-    });
+      card.addEventListener("click", function () {
+          openModal(imageSrc, text);
+      });
+
     document.getElementById('albumContainer').appendChild(clone);
   }
-  function openModal(imageSrc) {
+  function openModal(imageSrc, text) {
     const modal = document.getElementById("imageModal");
     const modalImg = document.getElementById("modalImage");
+    const imageText = document.getElementById("imageText");
+    imageText.textContent = text
     document.body.classList.add("modal-open");
     modalImg.src = imageSrc;
     modal.style.display = "block";
   }
-
   // Close modal when clicked outside the image
   document.getElementById("imageModal").addEventListener("click", function () {
     this.style.display = "none";
