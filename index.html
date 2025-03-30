@@ -277,9 +277,9 @@
     img.src = imageSrc;
     cardText.textContent = text;
     dateDiv.textContent = date;
-
+    const card = clone.querySelector('.card');
     // Append the cloned template to the card container
-    clone.addEventListener("click", function () {
+    card.addEventListener("click", function () {
         openModal(imageSrc);
     });
     document.getElementById('albumContainer').appendChild(clone);
