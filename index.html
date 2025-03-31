@@ -109,16 +109,16 @@
     const cardText = clone.querySelector('.card-text');
     const dateDiv = clone.querySelector('.card-body + div');
 
-    img.src = imageSrc; // Load the thumbnail first
+    // Generate the thumbnail image path by replacing "CompressedMedia" with "UltraCompressedMedia"
+    const thumbImageSrc = imageSrc.replace("CompressedMedia", "UltraCompressedMedia");
 
-    // Generate the full-size image path
-    const fullImageSrc = imageSrc.replace("UltraCompressedMedia", "CompressedMedia");
+    img.src = thumbImageSrc; // Load the thumbnail first
 
     // Preload the full-scale image
     const fullImg = new Image();
-    fullImg.src = fullImageSrc;
+    fullImg.src = imageSrc; // Original input is the full-scale image
     fullImg.onload = function () {
-        img.src = fullImageSrc; // Replace with the full-scale image after it loads
+        img.src = imageSrc; // Replace with full-scale image after loading
     };
 
     cardText.textContent = text;
@@ -126,7 +126,7 @@
 
     const card = clone.querySelector('.card');
     card.addEventListener("click", function () {
-        openModal(fullImageSrc, text);
+        openModal(imageSrc, text);
     });
 
     document.getElementById('albumContainer').appendChild(clone);
