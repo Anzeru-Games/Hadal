@@ -115,9 +115,9 @@
     img.src = thumbImageSrc; // Load the thumbnail first
 
     // Preload the full-scale image
-    const fullImg = new Image();
-    fullImg.src = imageSrc; // Original input is the full-scale image
     fullImg.onload = function () {
+        const fullImg = new Image();
+        fullImg.src = imageSrc; // Original input is the full-scale image
         img.src = imageSrc; // Replace with full-scale image after loading
     };
 
