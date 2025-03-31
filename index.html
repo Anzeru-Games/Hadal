@@ -45,14 +45,18 @@
 
     <template id="card-template">
       <div class="col">
-        <div class="card shadow-sm">
-          <!-- Lazy loaded image with a placeholder that will be replaced once the image loads -->
-          <img class="bd-placeholder-img card-img-top" 
-               style="width: 100%; height: 225px; object-fit: cover; opacity: 0; transition: opacity 0.5s ease; background-color: black;" 
+        <div class="card shadow-sm" style="position: relative;">
+          <!-- Full-size image (Initially hidden, fades in) -->
+          <img class="full-image bd-placeholder-img card-img-top" 
+               style="width: 100%; height: 225px; object-fit: cover; opacity: 0; transition: opacity 0.5s ease; background-color: black; position: absolute; top: 0; left: 0;" 
                role="img" 
-               aria-label="Thumbnail" 
-               src="your-image-url.jpg"
-               onload="this.style.opacity='1';">
+               aria-label="Full Image">
+          
+          <!-- Thumbnail (Always visible below) -->
+          <img class="thumb-image bd-placeholder-img card-img-top" 
+               style="width: 100%; height: 225px; object-fit: cover; background-color: black;" 
+               role="img" 
+               aria-label="Thumbnail">
     
           <div class="card-body">
             <p class="card-text" style="font-size: 20px;"></p>
@@ -104,20 +108,21 @@
     const template = document.getElementById('card-template');
     const clone = template.content.cloneNode(true);
 
-    const img = clone.querySelector('img');
+    const thumbImg = clone.querySelector('.thumb-image');
+    const fullImg = clone.querySelector('.full-image');
     const cardText = clone.querySelector('.card-text');
     const dateDiv = clone.querySelector('.card-body + div');
 
-    // Generate the thumbnail image path by replacing "CompressedMedia" with "UltraCompressedMedia"
+    // Set the thumbnail image (visible immediately)
     const thumbImageSrc = imageSrc.replace("CompressedMedia", "UltraCompressedMedia");
+    thumbImg.src = thumbImageSrc;
 
-    img.src = thumbImageSrc; // Load the thumbnail first
-
-    // Preload the full-scale image
-    const fullImg = new Image();
-    fullImg.src = imageSrc; // Original input is the full-scale image
+    // Set the full-size image (initially hidden)
+    fullImg.src = imageSrc;
+    
+    // Preload full-size image and reveal it on load
     fullImg.onload = function () {
-        img.src = imageSrc; // Replace with full-scale image after loading
+        fullImg.style.opacity = "1"; // Fade in full image
     };
 
     cardText.textContent = text;
