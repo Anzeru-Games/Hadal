@@ -197,14 +197,18 @@
       width : auto; /* Set a fixed width for the nav-link */
       height: auto;
       max-width: fit-content;
+      transition: transform 0.3s ease;
     }
     .nav-link:hover {
       background-color: #0a4f8c; /* Darker shade on hover */
+      transform: scale(1.05);
     }
     .navbar-brand:hover {
       background-color: #021e35; /* Darker shade on hover */
+      transform: scale(1.05);
     }
     .navbar-brand
     {
       background-color: #062544; border-radius: 5px; padding-left: 10px; padding-right: 13px; padding-top: 1px; padding-bottom: 1px;
+      transition: transform 0.3s ease;
     }
