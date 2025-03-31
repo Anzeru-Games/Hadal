@@ -89,7 +89,7 @@
 
   <div class="album py-5 bg-oceanblue">
     <div class="container">
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id = "albumContainer">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3" id = "albumContainer">
       </div>
       </div>
     </div>
@@ -102,26 +102,35 @@
 <script>
   document.documentElement.setAttribute('data-bs-theme', 'dark');
   function createCard(imageSrc, text, date) {
-    // Clone the template content
     const template = document.getElementById('card-template');
     const clone = template.content.cloneNode(true);
 
-    // Set dynamic values
     const img = clone.querySelector('img');
     const cardText = clone.querySelector('.card-text');
-    const dateDiv = clone.querySelector('.card-body + div');  // More specific selector for the date div
+    const dateDiv = clone.querySelector('.card-body + div');
 
-    img.src = imageSrc;
+    img.src = imageSrc; // Load the thumbnail first
+
+    // Generate the full-size image path
+    const fullImageSrc = imageSrc.replace("UltraCompressedMedia", "CompressedMedia");
+
+    // Preload the full-scale image
+    const fullImg = new Image();
+    fullImg.src = fullImageSrc;
+    fullImg.onload = function () {
+        img.src = fullImageSrc; // Replace with the full-scale image after it loads
+    };
+
     cardText.textContent = text;
     dateDiv.textContent = date;
+
     const card = clone.querySelector('.card');
-    // Append the cloned template to the card container
-      card.addEventListener("click", function () {
-          openModal(imageSrc, text);
-      });
+    card.addEventListener("click", function () {
+        openModal(fullImageSrc, text);
+    });
 
     document.getElementById('albumContainer').appendChild(clone);
-  }
+}
   function openModal(imageSrc, text) {
     const modal = document.getElementById("imageModal");
     const modalImg = document.getElementById("modalImage");
