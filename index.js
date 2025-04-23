@@ -1,3 +1,6 @@
+createCard('CompressedMedia/Screenshot 2025-04-23 105701.png', 'Working on implementing a sword with animations, model will probably change to be more ocean themed', 'April 23, 2025');
+createCard('CompressedMedia/Screenshot 2025-04-23 105713.png', 'Another showcase image for a frame of these new melee animations', 'April 23, 2025');
+
 createCard('CompressedMedia/Hadal 3_26_2025 9_38_06 PM.png', 'Additional tweaks to stylization, increased thickness of edge, decreased intensity of normal maps.', 'March 26, 2025');
 createCard('CompressedMedia/Hadal 3_23_2025 10_12_54 PM.png', 'Added some cool pillars, and a grounding force (keeps player stuck to slopes when moving on them).', 'March 23, 2025');
 createCard('CompressedMedia/Hadal 3_23_2025 3_49_10 PM.png', 'A better example of the edge stylization that was added.', 'March 23, 2025');
